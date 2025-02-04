@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-CinemAppApplication<CinemApp>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "me.fagiolini.CinemApp.CinemAppApplication",
+            "projectName": "CinemApp",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
