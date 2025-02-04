@@ -4,7 +4,7 @@ import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 @Data
@@ -16,7 +16,7 @@ public class Cinema {
     private String nome;
     private String indirizzo;
     private String telefono;
-    @ManyToOne
+    @OneToMany
     private List<Sala> sale;
 
 }
