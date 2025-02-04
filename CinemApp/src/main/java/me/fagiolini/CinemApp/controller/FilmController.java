@@ -30,6 +30,10 @@ public class FilmController {
         return this.filmService.save(film);
     }
     
+    @GetMapping("/deleteFilm")
+    public void deleteByID (@RequestParam long id) {
+        this.filmService.deleteByID(id);
+    }
     
     
 
