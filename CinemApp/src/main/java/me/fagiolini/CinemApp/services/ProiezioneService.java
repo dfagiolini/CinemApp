@@ -32,4 +32,8 @@ public class ProiezioneService {
      public List<Proiezione> saveAll(List<Proiezione> proiezioni) {
         return this.proiezioneRepository.saveAll(proiezioni);
     }
+
+    public Proiezione save(Proiezione proiezione) {
+        return this.proiezioneRepository.save(proiezione);
+    }
 }

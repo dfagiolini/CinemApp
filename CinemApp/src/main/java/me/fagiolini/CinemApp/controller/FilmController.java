@@ -39,8 +39,8 @@ public class FilmController {
         return this.filmService.saveAll(films);
     }
 
-    @PutMapping("updateFilm/{id}")
-    public Film putFilm(@PathVariable("id") long id, @RequestBody Film film ) {
+    @PutMapping("updateFilm")
+    public Film putFilm(@RequestBody Film film) {
         
         return this.filmService.save(film);
     }
