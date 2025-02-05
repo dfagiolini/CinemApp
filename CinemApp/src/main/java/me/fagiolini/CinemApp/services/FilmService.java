@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import me.fagiolini.CinemApp.model.Film;
+import me.fagiolini.CinemApp.model.Utente;
 import me.fagiolini.CinemApp.repository.FilmRepository;
 
 @Service
@@ -32,4 +33,6 @@ public class FilmService {
     public void deleteByID(long id) {
         this.filmRepository.deleteById(id);
     }
+
+    
 }

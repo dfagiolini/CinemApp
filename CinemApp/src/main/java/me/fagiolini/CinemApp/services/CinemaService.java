@@ -29,4 +29,8 @@ public class CinemaService {
     public void deleteCinemaByID(long id) {
         this.cinemaRepository.deleteById(id);
     }
+
+     public List<Cinema> saveAll(List<Cinema> cinema) {
+        return this.cinemaRepository.saveAll(cinema);
+    }
 }

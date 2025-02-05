@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.DeleteMapping;
+
 
 
 
@@ -29,9 +33,20 @@ public class FilmController {
     public Film postFilm(@RequestBody Film film) {
         return this.filmService.save(film);
     }
+
+    @PostMapping("/insertFilms")
+    public List<Film> postFilm(@RequestBody List<Film> films) {
+        return this.filmService.saveAll(films);
+    }
+
+    @PutMapping("updateFilm/{id}")
+    public Film putFilm(@PathVariable("id") long id, @RequestBody Film film ) {
+        
+        return this.filmService.save(film);
+    }
     
-    @GetMapping("/deleteFilm")
-    public void deleteByID (@RequestParam long id) {
+    @DeleteMapping("/deleteFilm/{id}")
+    public void deleteByID (@PathVariable("id") long id) {
         this.filmService.deleteByID(id);
     }
     
