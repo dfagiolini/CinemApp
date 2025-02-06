@@ -1,6 +1,7 @@
 package me.fagiolini.CinemApp.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +19,8 @@ public class FilmService {
         return this.filmRepository.findAll();
     }
 
-    public Film getById(long id) {
-        return this.filmRepository.getById(id);
+    public Optional<Film> getById(long id) {
+        return this.filmRepository.findById(id);
     }
 
     public Film save(Film film) {
@@ -32,6 +33,10 @@ public class FilmService {
 
     public void deleteByID(long id) {
         this.filmRepository.deleteById(id);
+    }
+
+    public List<Film> findFilmByCinema(long cinema_id) {
+        return this.filmRepository.findFilmByCinema(cinema_id);
     }
 
     

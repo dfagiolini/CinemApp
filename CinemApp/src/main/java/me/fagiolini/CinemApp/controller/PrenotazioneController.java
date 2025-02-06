@@ -1,5 +1,7 @@
 package me.fagiolini.CinemApp.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,8 +24,8 @@ public class PrenotazioneController {
     @Autowired
     private PrenotazioneService prenotazioneService;
 
-    @GetMapping("/prenotazione")
-    public Prenotazione getPrenotazione(@RequestParam long id) {
+    @GetMapping("/prenotazione/{id}")
+    public Optional<Prenotazione> getPrenotazione(@PathVariable(name = "id") long id) {
         return this.prenotazioneService.getPrenotazioneById(id);
     }
 
@@ -39,7 +41,7 @@ public class PrenotazioneController {
     }    
 
     @PutMapping("/updatePrenotazione")
-    public Prenotazione postPrenotazione(@RequestBody Prenotazione prenotazione) {
+    public Prenotazione updatePrenotazione(@RequestBody Prenotazione prenotazione) {
         return this.prenotazioneService.save(prenotazione);
     }
 }

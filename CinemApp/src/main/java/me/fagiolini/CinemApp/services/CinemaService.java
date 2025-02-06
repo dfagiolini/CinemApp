@@ -1,6 +1,7 @@
 package me.fagiolini.CinemApp.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +18,8 @@ public class CinemaService {
         return this.cinemaRepository.save(cinema);
     }
 
-    public Cinema getCinema(long id) {
-        return this.cinemaRepository.getById(id);
+    public Optional<Cinema> getCinema(long id) {
+        return this.cinemaRepository.findById(id);
 
     }
 

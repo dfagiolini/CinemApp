@@ -1,6 +1,7 @@
 package me.fagiolini.CinemApp.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,8 +23,8 @@ public class CinemaController {
     @Autowired
     private CinemaService cinemaService;
 
-    @GetMapping("/getCinema")
-    public Cinema getCinema(@RequestParam long id) {
+    @GetMapping("/getCinema/{id}")
+    public Optional<Cinema> getCinema(@PathVariable(name = "id") long id) {
         return this.cinemaService.getCinema(id);
     }
     

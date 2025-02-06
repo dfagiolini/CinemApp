@@ -1,6 +1,7 @@
 package me.fagiolini.CinemApp.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +18,8 @@ public class UtenteService {
         return this.utenteRepository.findAll();
     }
 
-    public Utente getById(long id) {
-        return this.utenteRepository.getById(id);
+    public Optional<Utente> getById(long id) {
+        return this.utenteRepository.findById(id);
     }
 
     public void deleteById(long id) {

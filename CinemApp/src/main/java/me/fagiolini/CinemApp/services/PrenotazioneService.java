@@ -1,6 +1,7 @@
 package me.fagiolini.CinemApp.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +18,8 @@ public class PrenotazioneService {
         return this.prenotazioneRepository.findAll();
     }
 
-    public Prenotazione getPrenotazioneById(long id) {
-        return this.prenotazioneRepository.getById(id);
+    public Optional<Prenotazione> getPrenotazioneById(long id) {
+        return this.prenotazioneRepository.findById(id);
     }
 
     public void deleteByID(long id) {

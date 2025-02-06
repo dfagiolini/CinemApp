@@ -1,6 +1,7 @@
 package me.fagiolini.CinemApp.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,8 +17,8 @@ public class SalaService {
         return this.salaRepository.findAll();
     }
 
-    public Sala getSalaById(long id) {
-        return this.salaRepository.getById(id);
+    public Optional<Sala> getSalaById(long id) {
+        return this.salaRepository.findById(id);
     }
 
     public void deleteByID(long id) {
@@ -32,5 +33,11 @@ public class SalaService {
         return this.salaRepository.saveAll(sale);
     }
 
+    public List<Sala> getSalaByCinema(long cinemaId) {
+        return this.salaRepository.findSalaByCinema(cinemaId);
+    }
+    public List<Sala> getSalaByCinemaAndFilm(long cinemaId, long filmId) {
+        return this.salaRepository.findSalaByCinemaAndFilm(cinemaId, filmId);
+    }
 
 }
