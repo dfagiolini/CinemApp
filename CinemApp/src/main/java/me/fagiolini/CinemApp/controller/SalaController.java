@@ -6,6 +6,7 @@ import me.fagiolini.CinemApp.model.Sala;
 import me.fagiolini.CinemApp.services.SalaService;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,8 +25,8 @@ public class SalaController {
     @Autowired
     private SalaService salaService;
 
-    @GetMapping("/getSala")
-    public Sala getSala(@RequestParam long id) {
+    @GetMapping("/getSala/{id}")
+    public Optional<Sala> getSala(@PathVariable(name = "id") long id) {
         return this.salaService.getSalaById(id);
     }
 
@@ -51,7 +52,7 @@ public class SalaController {
         this.salaService.deleteByID(id);
     }
 
-    @PutMapping("updateSala")
+    @PutMapping("/updateSala")
     public Sala putSala(@RequestBody Sala sala) {
         return this.salaService.save(sala);
 
@@ -59,8 +60,17 @@ public class SalaController {
 
     @DeleteMapping("/deleteSala")
     public void requestMethodName(@RequestParam long id) {
-        this.salaService.deleteByID(id);;
+        this.salaService.deleteByID(id);
     }
     
+    @GetMapping("/getSaleByCinema/{id}")
+    public List<Sala> getSaleByCinema(@PathVariable(name = "id") long id) {
+        return this.salaService.getSalaByCinema(id);
+    }
+
+    @GetMapping("/getSaleByCinemaAndFilm/{cinemaId}/{salaId}")
+    public List<Sala> getSaleByCinemaAndFilm(@PathVariable(name = "cinemaId") long cinemaId, @PathVariable(name = "salaId") long salaId ) {
+        return this.salaService.getSalaByCinemaAndFilm(cinemaId,salaId);
+    }
 
 }

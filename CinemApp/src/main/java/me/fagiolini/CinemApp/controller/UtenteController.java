@@ -1,6 +1,7 @@
 package me.fagiolini.CinemApp.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,8 +26,8 @@ public class UtenteController {
         return this.utenteService.findAll();
     }
 
-    @GetMapping("/utente")
-    public Utente getUtente(@RequestParam long id) {
+    @GetMapping("/utente/{id}")
+    public Optional<Utente> getUtente(@PathVariable(name = "id") long id) {
         return this.utenteService.getById(id);
     }
 

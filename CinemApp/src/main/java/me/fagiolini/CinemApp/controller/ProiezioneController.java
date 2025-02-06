@@ -1,9 +1,13 @@
 package me.fagiolini.CinemApp.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 import me.fagiolini.CinemApp.model.Proiezione;
+import me.fagiolini.CinemApp.model.Sala;
 import me.fagiolini.CinemApp.services.ProiezioneService;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,8 +24,8 @@ public class ProiezioneController {
     @Autowired
     private ProiezioneService proiezioneService;
 
-    @GetMapping("/proiezione")
-    public Proiezione proiezione(@RequestParam long id) {
+    @GetMapping("/proiezione/{id}")
+    public Optional<Proiezione> proiezione(@PathVariable(name = "id") long id) {
         return this.proiezioneService.getById(id);
     }
 
@@ -40,4 +44,14 @@ public class ProiezioneController {
     public void deleteProiezione(@RequestParam long id) {
         this.proiezioneService.deleteByID(id);
     }
+
+     @GetMapping("/getProiezioniByCinema/{id}")
+    public List<Proiezione> getProiezioniByCinema(@PathVariable(name = "id") long id) {
+        return this.proiezioneService.findByCinema(id);
+    }
+    @GetMapping("/getProiezioniByFilm/{id}")
+    public List<Proiezione> getProiezioniByFilm(@PathVariable(name = "id") long id) {
+        return this.proiezioneService.findByFilm(id);
+    }
+
 }
