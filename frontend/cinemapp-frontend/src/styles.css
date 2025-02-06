@@ -227,3 +227,15 @@ footer {
     border-radius: 4px;
     margin: 1rem 0;
 }
+
+ 
+.p-card {
+    width: 300px;
+    margin-bottom: 20px;
+  }
+  
+  .p-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 20px;
+  }

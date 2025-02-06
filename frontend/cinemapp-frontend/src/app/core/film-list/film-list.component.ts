@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-film-list',
   templateUrl: './film-list.component.html',
   styleUrls: ['./film-list.component.scss'],
 })
-export class FilmListComponent {
+export class FilmListComponent implements OnInit {
   films = [
     {
       logo: 'assets/movielogo1.png',
@@ -22,4 +22,10 @@ export class FilmListComponent {
       orari: ['16:00', '19:00'],
     },
   ];
+
+  constructor(){}
+
+  ngOnInit(): void {
+      
+  }
 }
