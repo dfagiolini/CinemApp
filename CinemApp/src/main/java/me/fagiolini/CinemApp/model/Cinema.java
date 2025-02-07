@@ -2,13 +2,7 @@ package me.fagiolini.CinemApp.model;
 
 import java.util.Set;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 @Data
@@ -23,6 +17,7 @@ public class Cinema {
     private String indirizzo;
     private String telefono;
     @OneToMany
+    @JoinColumn(name = "cinema_id")
     private Set<Sala> sale;
 
 }
