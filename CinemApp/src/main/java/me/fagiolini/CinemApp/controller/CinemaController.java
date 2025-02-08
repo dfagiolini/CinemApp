@@ -29,7 +29,7 @@ public class CinemaController {
     }
     
     @GetMapping("/getAllCinema")
-    public List<Cinema> getAllCinema(@RequestParam long id) {
+    public List<Cinema> getAllCinema() {
         return this.cinemaService.getAllCinemas();
     }
 
