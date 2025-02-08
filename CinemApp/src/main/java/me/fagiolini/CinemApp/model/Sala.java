@@ -18,4 +18,7 @@ public class Sala {
     private long id;
     private String numero;
     private int capacita;
+    @ManyToOne
+    @JoinColumn(name = "cinema_id")
+    private Cinema cinema;
 }
