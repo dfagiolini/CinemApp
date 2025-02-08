@@ -9,6 +9,6 @@ import me.fagiolini.CinemApp.model.Cinema;
 import me.fagiolini.CinemApp.model.Sala;
 
 public interface CinemaRepository extends JpaRepository<Cinema, Long> {
-    @Query(value = "select c.* from proiezione p , cinema c , cinema_sale cs , sala s , film f where c.id = cs.cinema_id and s.id = cs.sale_id and p.sala_id = s.id and f.id = p.film_id and f.id = ?1;", nativeQuery = true)
+    @Query(value = "select c.* from proiezione p , cinema c , sala s , film f where c.id = s.cinema_id and p.sala_id = s.id and f.id = p.film_id and f.id = ?1;", nativeQuery = true)
     List<Cinema> findCinemaByFilm(long filmId);
 }
