@@ -1,5 +1,5 @@
 -- Inserimento dati nel cinema
-INSERT INTO public.cinema (indirizzo, nome, telefono)
+INSERT INTO cinemapp.cinema (indirizzo, nome, telefono)
 VALUES 
 ('Via Roma, 1', 'Cinema Roma', '123456789'),
 ('Via Milano, 20', 'Cinema Milano', '987654321'),
@@ -8,7 +8,7 @@ VALUES
 ('Via Torino, 33', 'Cinema Torino', '456789012');
 
 -- Inserimento dati nei film
-INSERT INTO public.film (durata, copertina, descrizione, genere, regia, titolo)
+INSERT INTO cinemapp.film (durata, copertina, descrizione, genere, regia, titolo)
 VALUES 
 (120, 'copertina1.jpg', 'Descrizione del Film 1', 'Azione', 'Regista 1', 'Film 1'),
 (90, 'copertina2.jpg', 'Descrizione del Film 2', 'Commedia', 'Regista 2', 'Film 2'),
@@ -18,7 +18,7 @@ VALUES
 (105, 'copertina6.jpg', 'Descrizione del Film 6', 'Animazione', 'Regista 6', 'Film 6');
 
 -- Inserimento dati nelle sale
-INSERT INTO public.sala (capacita, cinema_id, numero)
+INSERT INTO cinemapp.sala (capacita, cinema_id, numero)
 VALUES 
 (150, 1, 'Sala 1'),
 (100, 1, 'Sala 2'),
@@ -30,9 +30,10 @@ VALUES
 (250, 5, 'Sala 8');
 
 -- Inserimento dati nelle proiezioni
-INSERT INTO public.proiezione (data_ora_fine, data_ora_inizio, prezzo, film_id, sala_id)
+INSERT INTO cinemapp.proiezione (data_ora_fine, data_ora_inizio, prezzo, film_id, sala_id)
 VALUES 
 ('2025-02-08 20:00:00', '2025-02-08 18:00:00', 10.50, 1, 1),
+('2025-02-08 22:00:00', '2025-02-08 20:00:00', 10.50, 1, 1),
 ('2025-02-08 22:30:00', '2025-02-08 21:00:00', 8.00, 2, 2),
 ('2025-02-08 23:00:00', '2025-02-08 21:00:00', 12.00, 3, 3),
 ('2025-02-08 21:30:00', '2025-02-08 19:00:00', 9.50, 4, 4),
@@ -42,7 +43,7 @@ VALUES
 ('2025-02-08 21:00:00', '2025-02-08 19:00:00', 8.50, 2, 8);
 
 -- Inserimento dati negli utenti
-INSERT INTO public.utente (ruolo, email, nome, password)
+INSERT INTO cinemapp.utente (ruolo, email, nome, password)
 VALUES 
 (0, 'user1@example.com', 'User 1', 'password1'),
 (1, 'user2@example.com', 'User 2', 'password2'),
@@ -51,7 +52,7 @@ VALUES
 (0, 'user5@example.com', 'User 5', 'password5');
 
 -- Inserimento dati nelle prenotazioni
-INSERT INTO public.prenotazione (data_prenotazione, numero_biglietti, proiezione_id, utente_id)
+INSERT INTO cinemapp.prenotazione (data_prenotazione, numero_biglietti, proiezione_id, utente_id)
 VALUES 
 ('2025-02-07', 2, 1, 1),
 ('2025-02-07', 4, 2, 2),
